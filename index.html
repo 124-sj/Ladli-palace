@@ -1,1 +1,482 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#080808">
+<title>Ladli Palace | Luxury, Comfort & Celebrations</title>
+<meta name="description" content="Welcome to Ladli Palace. Discover our rooms, banquet hall, hospitality and special celebrations.">
+<style>
+:root{
+  --black:#080808;
+  --dark:#121212;
+  --card:#191919;
+  --yellow:#ffd600;
+  --gold:#ffb800;
+  --white:#ffffff;
+  --muted:#bdbdbd;
+}
+*{margin:0;padding:0;box-sizing:border-box;scroll-behavior:smooth}
+body{
+  font-family:Arial,Helvetica,sans-serif;
+  background:var(--black);
+  color:var(--white);
+  line-height:1.7;
+}
+a{color:inherit;text-decoration:none}
+img,video{max-width:100%;display:block}
+button{font:inherit}
+.container{width:min(1160px,92%);margin:auto}
+header{
+  position:sticky;top:0;z-index:1000;
+  background:rgba(8,8,8,.96);
+  border-bottom:1px solid rgba(255,214,0,.35);
+  backdrop-filter:blur(12px);
+}
+.nav{
+  min-height:82px;display:flex;align-items:center;
+  justify-content:space-between;gap:20px;
+}
+.brand{display:flex;align-items:center;gap:12px}
+.brand img{width:58px;height:58px;object-fit:contain}
+.brand-name{
+  font-size:22px;font-weight:900;letter-spacing:2px;
+  color:var(--yellow);
+  text-shadow:0 0 12px rgba(255,214,0,.55);
+}
+.brand small{display:block;color:#ddd;font-size:10px;letter-spacing:2px}
+nav{display:flex;gap:19px;align-items:center;flex-wrap:wrap}
+nav a{font-size:13px;color:#eee;transition:.25s}
+nav a:hover{color:var(--yellow);text-shadow:0 0 10px var(--yellow)}
+.menu-btn{
+  display:none;background:transparent;border:1px solid var(--yellow);
+  color:var(--yellow);padding:7px 12px;border-radius:6px;
+}
+.hero{
+  min-height:640px;display:flex;align-items:center;
+  position:relative;isolation:isolate;
+  background:#111 url('building.jpeg') center/cover no-repeat;
+}
+.hero::before{
+  content:"";position:absolute;inset:0;z-index:-1;
+  background:linear-gradient(90deg,rgba(0,0,0,.94),rgba(0,0,0,.65),rgba(0,0,0,.2));
+}
+.hero-content{padding:90px 0;max-width:760px}
+.eyebrow{
+  color:var(--yellow);letter-spacing:4px;
+  text-transform:uppercase;font-size:12px;font-weight:bold;
+}
+h1{font-size:clamp(38px,7vw,76px);line-height:1.12;margin:20px 0}
+h1 span,.glow{color:var(--yellow);text-shadow:0 0 18px rgba(255,214,0,.4)}
+.hero p{color:#e5e5e5;max-width:610px;font-size:17px}
+.actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:30px}
+.btn{
+  display:inline-flex;justify-content:center;align-items:center;
+  padding:12px 21px;border:1px solid var(--yellow);
+  border-radius:5px;font-size:13px;font-weight:bold;
+  transition:.25s;cursor:pointer;
+}
+.btn.primary{background:var(--yellow);color:#080808}
+.btn:hover{box-shadow:0 0 22px rgba(255,214,0,.4);transform:translateY(-2px)}
+.btn.outline{color:var(--yellow);background:rgba(0,0,0,.35)}
+section{padding:85px 0;scroll-margin-top:85px}
+.section-head{text-align:center;margin:0 auto 38px;max-width:740px}
+.section-head h2{font-size:clamp(28px,4vw,43px);line-height:1.25;margin-bottom:12px}
+.section-head p{color:var(--muted)}
+.line{
+  width:75px;height:3px;background:var(--yellow);
+  box-shadow:0 0 12px var(--yellow);margin:18px auto;
+}
+.intro{background:#101010}
+.intro-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:38px;align-items:center}
+.intro h2{font-size:36px;margin:10px 0 18px}
+.intro p{color:#ccc;margin-bottom:14px}
+.intro-photo{border:1px solid rgba(255,214,0,.45);border-radius:12px;overflow:hidden}
+.intro-photo img{width:100%;height:360px;object-fit:cover}
+.dark-section{background:#0c0c0c}
+.cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
+.card{
+  background:linear-gradient(145deg,#1b1b1b,#101010);
+  border:1px solid #303030;border-radius:10px;overflow:hidden;
+  transition:.3s;
+}
+.card:hover{border-color:var(--yellow);transform:translateY(-5px);box-shadow:0 0 20px rgba(255,214,0,.12)}
+.card img{width:100%;height:240px;object-fit:cover}
+.card-body{padding:20px}
+.card h3{color:var(--yellow);font-size:20px;margin-bottom:8px}
+.card p{font-size:14px;color:#c4c4c4}
+.card .btn{margin-top:16px}
+.gallery-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}
+.gallery-grid .card img{height:300px}
+.management-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
+.person{text-align:center}
+.person img{height:350px;object-fit:cover;object-position:center top}
+.person .card-body{padding:22px}
+.person h3{font-size:23px}
+.person .role{color:var(--yellow);font-size:12px;letter-spacing:2px;text-transform:uppercase}
+.vision{
+  margin-top:32px;padding:30px;border:1px solid #4d4300;
+  border-radius:10px;background:linear-gradient(120deg,#181500,#101010);
+  text-align:center;
+}
+.vision h3{font-size:26px;color:var(--yellow);margin-bottom:10px}
+.vision p{color:#ddd;max-width:800px;margin:auto}
+.guest-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
+.guest-grid img{height:250px;object-fit:cover}
+.video-wrap{
+  max-width:900px;margin:auto;padding:10px;border-radius:12px;
+  border:1px solid var(--yellow);
+  box-shadow:0 0 25px rgba(255,214,0,.12);
+  background:#111;
+}
+.video-wrap video{width:100%;max-height:580px;background:#000;border-radius:6px}
+.review-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.review-grid img{width:100%;height:auto;object-fit:contain;background:#171717;border-radius:8px}
+.contact-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.contact-card{
+  padding:25px 18px;background:#151515;border:1px solid #353535;
+  border-radius:9px;text-align:center;
+}
+.contact-card .symbol{font-size:30px;color:var(--yellow)}
+.contact-card h3{color:var(--yellow);margin:8px 0}
+.contact-card p{color:#ccc;font-size:14px;overflow-wrap:anywhere}
+.map-link{display:inline-block;color:var(--yellow);margin-top:12px}
+.booking-banner{
+  background:linear-gradient(110deg,#2a2300,#151515 60%);
+  border-top:1px solid #685600;border-bottom:1px solid #685600;
+  text-align:center;padding:55px 20px;
+}
+.booking-banner h2{font-size:clamp(26px,4vw,38px);margin-bottom:12px}
+.booking-banner p{color:#ddd;margin-bottom:20px}
+footer{background:#050505;border-top:1px solid #3a3100;padding:32px 0;text-align:center}
+footer .footer-brand{color:var(--yellow);font-weight:900;letter-spacing:2px;font-size:20px}
+footer p{font-size:12px;color:#aaa;margin-top:8px}
+footer .footer-links{display:flex;justify-content:center;gap:18px;flex-wrap:wrap;margin:16px 0}
+footer .footer-links a{color:#ddd;font-size:13px}
+.float-whatsapp{
+  position:fixed;right:20px;bottom:20px;z-index:999;
+  width:55px;height:55px;border-radius:50%;
+  background:#25d366;color:#07150b;display:flex;
+  align-items:center;justify-content:center;font-size:26px;
+  font-weight:bold;box-shadow:0 0 18px rgba(37,211,102,.4);
+}
+@media(max-width:900px){
+  .menu-btn{display:block}
+  nav{
+    display:none;position:absolute;top:82px;left:0;right:0;
+    padding:22px;background:#080808;border-bottom:1px solid var(--yellow);
+    flex-direction:column;align-items:stretch;gap:0;
+  }
+  nav.open{display:flex}
+  nav a{padding:12px 4%;border-bottom:1px solid #222}
+  .cards,.guest-grid,.review-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .intro-grid{grid-template-columns:1fr}
+  .contact-grid{grid-template-columns:1fr}
+}
+@media(max-width:600px){
+  .nav{min-height:72px}
+  .brand img{width:46px;height:46px}
+  .brand-name{font-size:18px}
+  .brand small{font-size:8px}
+  nav{top:72px}
+  .hero{min-height:570px;background-position:center}
+  .hero-content{padding:65px 0}
+  .hero p{font-size:15px}
+  section{padding:62px 0}
+  .cards,.gallery-grid,.management-grid,.guest-grid,.review-grid{grid-template-columns:1fr}
+  .card img,.gallery-grid .card img{height:250px}
+  .person img{height:340px}
+  .intro h2{font-size:30px}
+  .float-whatsapp{right:14px;bottom:14px;width:49px;height:49px}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container nav">
+    <a class="brand" href="#home" aria-label="Ladli Palace home">
+      <img src="logo.png" alt="Ladli Palace Logo">
+      <div>
+        <div class="brand-name">LADLI PALACE</div>
+        <small>LUXURY • COMFORT • CELEBRATIONS</small>
+      </div>
+    </a>
+    <button class="menu-btn" id="menuBtn" aria-label="Open navigation" aria-expanded="false">☰ Menu</button>
+    <nav id="nav">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#rooms">Rooms</a>
+      <a href="#banquet">Banquet Hall</a>
+      <a href="#management">Management</a>
+      <a href="#guests">Special Guests</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section class="hero" id="home">
+  <div class="container hero-content">
+    <div class="eyebrow">Welcome to Ladli Palace</div>
+    <h1>Experience <span>Luxury</span><br>Like Never Before</h1>
+    <p>A welcoming destination for comfortable stays, memorable celebrations and warm hospitality. Discover the Ladli Palace experience.</p>
+    <div class="actions">
+      <a class="btn primary" href="#rooms">Explore Our Rooms</a>
+      <a class="btn outline" href="#banquet">Discover Banquet Hall</a>
+    </div>
+  </div>
+</section>
+
+<section class="intro" id="about">
+  <div class="container intro-grid">
+    <div>
+      <div class="eyebrow">About Us</div>
+      <h2>Welcome to <span class="glow">Ladli Palace</span></h2>
+      <p>Ladli Palace brings together hospitality, comfort and a welcoming atmosphere for guests and special occasions.</p>
+      <p>Whether you are planning a comfortable stay or a memorable celebration, our aim is to make every visit special.</p>
+      <a class="btn primary" href="#contact">Get in Touch</a>
+    </div>
+    <div class="intro-photo">
+      <img src="building.jpeg" alt="Ladli Palace building and front entrance" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<section id="rooms">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Comfort & Hospitality</div>
+      <h2>Rooms & <span class="glow">Hospitality</span></h2>
+      <div class="line"></div>
+      <p>Relax in a welcoming environment designed to make your stay comfortable.</p>
+    </div>
+    <div class="cards">
+      <article class="card">
+        <img src="room1.jpeg" alt="Ladli Palace room 1" loading="lazy">
+        <div class="card-body"><h3>Comfortable Rooms</h3><p>A welcoming space for your stay at Ladli Palace.</p></div>
+      </article>
+      <article class="card">
+        <img src="room2.jpeg" alt="Ladli Palace room 2" loading="lazy">
+        <div class="card-body"><h3>Relax & Unwind</h3><p>Enjoy a relaxing atmosphere during your visit.</p></div>
+      </article>
+      <article class="card">
+        <img src="room3.jpeg" alt="Ladli Palace room 3" loading="lazy">
+        <div class="card-body"><h3>Stay Experience</h3><p>Discover our rooms and hospitality.</p></div>
+      </article>
+      <article class="card">
+        <img src="room4.jpeg" alt="Ladli Palace room 4" loading="lazy">
+        <div class="card-body"><h3>More Room Options</h3><p>Explore another view of our room facilities.</p></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="dark-section" id="banquet">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Celebrate Special Moments</div>
+      <h2>Our <span class="glow">Banquet Hall</span></h2>
+      <div class="line"></div>
+      <p>A venue for celebrations, gatherings and memorable occasions.</p>
+    </div>
+    <div class="gallery-grid">
+      <article class="card">
+        <img src="hall1.jpeg" alt="Ladli Palace banquet hall 1" loading="lazy">
+        <div class="card-body"><h3>Celebration Space</h3><p>A setting for your special events.</p></div>
+      </article>
+      <article class="card">
+        <img src="hall2.jpeg" alt="Ladli Palace banquet hall 2" loading="lazy">
+        <div class="card-body"><h3>Elegant Gatherings</h3><p>Make important moments memorable.</p></div>
+      </article>
+      <article class="card">
+        <img src="hall3.jpeg" alt="Ladli Palace banquet hall 3" loading="lazy">
+        <div class="card-body"><h3>Special Occasions</h3><p>Explore our banquet hall setting.</p></div>
+      </article>
+      <article class="card">
+        <img src="hall4.jpeg" alt="Ladli Palace banquet hall 4" loading="lazy">
+        <div class="card-body"><h3>Your Celebration</h3><p>Contact us to discuss your event.</p></div>
+      </article>
+    </div>
+    <div style="text-align:center;margin-top:30px">
+      <a class="btn primary" href="#contact">Enquire About Events</a>
+    </div>
+  </div>
+</section>
+
+<section id="management">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">The People Behind Our Hospitality</div>
+      <h2>Our <span class="glow">Management</span></h2>
+      <div class="line"></div>
+      <p>Meet the people associated with Ladli Palace.</p>
+    </div>
+    <div class="management-grid">
+      <article class="card person">
+        <img src="sourav.jpg" alt="Sourav Chowdhury - Management" loading="lazy">
+        <div class="card-body">
+          <h3>Sourav Chowdhury</h3>
+          <div class="role">Management</div>
+        </div>
+      </article>
+      <article class="card person">
+        <img src="sova.jpg" alt="Shova Chowdhury - Management" loading="lazy">
+        <div class="card-body">
+          <h3>Shova Chowdhury</h3>
+          <div class="role">Management</div>
+        </div>
+      </article>
+    </div>
+    <div class="vision">
+      <h3>Our Vision</h3>
+      <p>Our vision is to create a welcoming destination where guests feel comfortable, celebrations become lasting memories, and hospitality is at the heart of every experience.</p>
+    </div>
+  </div>
+</section>
+
+<section class="dark-section" id="guests">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Our Valued Guests</div>
+      <h2>Special <span class="glow">Guests</span></h2>
+      <div class="line"></div>
+      <p>Featuring special guests and people associated with Ladli Palace.</p>
+    </div>
+    <div class="guest-grid">
+      <article class="card">
+        <img src="kohinoor.jpg" alt="Special guest Kohinoor" loading="lazy">
+        <div class="card-body"><h3>Kohinoor</h3><p>Special Guest</p></div>
+      </article>
+      <article class="card">
+        <img src="rahul.jpg" alt="Special guest Rahul" loading="lazy">
+        <div class="card-body"><h3>Rahul</h3><p>Special Guest</p></div>
+      </article>
+      <article class="card">
+        <img src="raghab.jpg" alt="Special guest Raghav" loading="lazy">
+        <div class="card-body"><h3>Raghav</h3><p>Special Guest</p></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Watch & Discover</div>
+      <h2>Ladli Palace <span class="glow">Video</span></h2>
+      <div class="line"></div>
+      <p>Take a look at our video and get to know Ladli Palace.</p>
+    </div>
+    <div class="video-wrap">
+      <video controls playsinline preload="metadata" aria-label="Ladli Palace video">
+        <source src="video%20(4).mp4" type="video/mp4">
+        Your browser does not support HTML video.
+      </video>
+    </div>
+  </div>
+</section>
+
+<section class="dark-section" id="reviews">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Guest Feedback</div>
+      <h2>Review <span class="glow">Experience</span></h2>
+      <div class="line"></div>
+      <p>Guest review screenshots shared by Ladli Palace.</p>
+    </div>
+    <div class="review-grid">
+      <img src="review1.jpeg" alt="Ladli Palace guest review 1" loading="lazy">
+      <img src="review2.jpeg" alt="Ladli Palace guest review 2" loading="lazy">
+      <img src="review3.jpeg" alt="Ladli Palace guest review 3" loading="lazy">
+    </div>
+    <div style="text-align:center;margin-top:26px">
+      <a class="btn outline" href="https://maps.app.goo.gl/Pb35HBjsCMsBAM519" target="_blank" rel="noopener">Find Us on Google Maps</a>
+    </div>
+  </div>
+</section>
+
+<section class="booking-banner">
+  <div class="container">
+    <div class="eyebrow">Plan Your Visit</div>
+    <h2>Make Your Moments <span class="glow">Memorable</span></h2>
+    <p>Contact Ladli Palace for room enquiries, events and booking information.</p>
+    <div class="actions" style="justify-content:center">
+      <a class="btn primary" href="https://wa.me/918001222222" target="_blank" rel="noopener">WhatsApp Us</a>
+      <a class="btn outline" href="https://www.makemytrip.com/" target="_blank" rel="noopener">MakeMyTrip</a>
+    </div>
+    <p style="font-size:12px;margin-top:15px">MakeMyTrip opens its main website. Search for Ladli Palace to check listing and booking availability.</p>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">We Are Here for You</div>
+      <h2>Contact <span class="glow">Us</span></h2>
+      <div class="line"></div>
+      <p>Reach out to us for enquiries and directions.</p>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-card">
+        <div class="symbol">☎</div>
+        <h3>Call Us</h3>
+        <p>8001222222</p>
+        <a class="map-link" href="tel:8001222222">Call Now →</a>
+      </div>
+      <div class="contact-card">
+        <div class="symbol">⌖</div>
+        <h3>Our Location</h3>
+        <p>Find Ladli Palace on Google Maps.</p>
+        <a class="map-link" href="https://maps.app.goo.gl/Pb35HBjsCMsBAM519" target="_blank" rel="noopener">Get Directions →</a>
+      </div>
+      <div class="contact-card">
+        <div class="symbol">✉</div>
+        <h3>Facebook</h3>
+        <p>Connect with Ladli Palace online.</p>
+        <a class="map-link" href="https://www.facebook.com/share/19S2bnGcJv/" target="_blank" rel="noopener">Visit Our Facebook →</a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-brand">LADLI PALACE</div>
+    <p>Luxury • Comfort • Celebrations</p>
+    <div class="footer-links">
+      <a href="#home">Home</a>
+      <a href="#rooms">Rooms</a>
+      <a href="#banquet">Banquet Hall</a>
+      <a href="#management">Management</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <p>© <span id="year"></span> Ladli Palace. All rights reserved.</p>
+  </div>
+</footer>
+
+<a class="float-whatsapp" href="https://wa.me/918001222222" target="_blank" rel="noopener" aria-label="Chat with Ladli Palace on WhatsApp">W</a>
+
+<script>
+const menuBtn = document.getElementById('menuBtn');
+const nav = document.getElementById('nav');
+
+menuBtn.addEventListener('click', function(){
+  const isOpen = nav.classList.toggle('open');
+  menuBtn.setAttribute('aria-expanded', String(isOpen));
+});
+
+nav.querySelectorAll('a').forEach(function(link){
+  link.addEventListener('click', function(){
+    nav.classList.remove('open');
+    menuBtn.setAttribute('aria-expanded','false');
+  });
+});
+
+document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
